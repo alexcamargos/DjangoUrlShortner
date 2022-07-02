@@ -1,0 +1,141 @@
+:root {
+  --oxford-blue: hsla(213, 72%, 16%, 1);
+  --prussian-blue: hsla(215, 66%, 22%, 1);
+  --indigo-dye: hsla(212, 72%, 26%, 1);
+  --pewter-blue: hsla(209, 32%, 66%, 1);
+  --mint-cream: hsla(111, 24%, 94%, 1);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--oxford-blue);
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 120px;
+  text-align: center;
+  background-color: white;
+}
+
+h1 {
+  color: var(--mint-cream);
+}
+
+h2 {
+  margin-left: 0.5rem;
+  color: var(--mint-cream);
+}
+
+h3 {
+  padding: 0.25rem;
+  color: var(--prussian-blue);
+}
+
+main {
+  max-width: 720px;
+  width: 100%;
+  border: 0.15rem solid var(--mint-cream);
+  border-radius: 0.666rem;
+  background-image: linear-gradient(
+    to top,
+    var(--pewter-blue) 0%,
+    var(--oxford-blue) 100%
+  );
+  box-shadow: 0 10px 20px rgba(17, 17, 17, 0.125),
+    0 5px 5px rgba(17, 17, 17, 0.25);
+}
+
+input,
+button {
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: 0;
+  padding: 1rem;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  line-height: 1.5;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--mint-cream);
+  margin: 0.666rem;
+}
+
+.btn-t-blue {
+  background-color: var(--pewter-blue);
+  border-color: #0980a1;
+  color: var(--prussian-blue);
+  width: 90%;
+}
+
+.btn-xl {
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 15px 30px;
+}
+
+.form-control-fancy {
+  color: #42cf98;
+  font-size: 16px;
+  font-weight: 500;
+  height: auto;
+  padding: 16px 10px;
+}
+
+.text-t-green {
+  color: #1f8244 !important;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  padding-top: 10rem;
+  align-items: center;
+}
+
+/* *************** FOOTER STYLES *************** */
+footer {
+  margin-top: 50px;
+  color: var(--pewter-blue)
+}
+
+footer a {
+  color: var(--pewter-blue);
+  text-decoration: none;
+}
+
+footer a :hover {
+  color: var(--prussian-blue);
+}

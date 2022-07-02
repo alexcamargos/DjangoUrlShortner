@@ -1,0 +1,64 @@
+{% load static %}
+
+<head>
+
+  <title>URL Shortener</title>
+
+  <link rel="icon" type="image/png" href="{% static 'assets/img/favicon.png' %}" />
+
+  <!-- normalize.css v8.0.1  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'assets/style/main.css' %}">
+
+</head>
+
+<div class="wrapper">
+
+  <main>
+    <div class="title">
+      <img src="{% static 'assets/img/logo.png' %}" alt="">
+      <h1>URL Shortener</h1>
+    </div>
+
+    <h2>Enter a long URL to make a shortened:</h2>
+
+    <form id="post-form">
+      {% csrf_token %}
+      <input class="form-control-fancy text-t-green" type="text" name="link" id="link" placeholder="Enter URL here" />
+      <div class="buttons">
+        <button class="btn-t-blue btn-xl" type="submit" id="shorten">Shorten</button>
+      </div>
+    </form>
+
+    <section id="section">
+      <h3></h3>
+      <div class="section">
+        <p>URL Shortener is a free tool to shorten a URL or reduce a link.</p>
+        <p>Use our URL Shortener to create a shortened link making it easy to remember.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER START -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>Criado com &#10084;&#65039; por <a target="_blank" href="https://github.com/alexcamargos">Alexsander Lopes Camargos</a> usando Django.</p>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+</div>
+
+<!-- jQuery v3.6.0 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="{% static 'assets/js/main.js' %}"></script>
