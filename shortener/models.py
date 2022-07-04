@@ -17,7 +17,7 @@ class ShortUUIDModel(models.Model):
 class Url(models.Model):
     # id = models.CharField(max_length=40, primary_key=True)
     url = models.URLField(max_length=10_000)
-    uuid = uuid = models.CharField(max_length=8)
+    uuid = models.CharField(max_length=8)
     short_url = models.CharField(max_length=6)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
