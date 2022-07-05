@@ -3,22 +3,30 @@ from shortuuid.django_fields import ShortUUIDField
 
 # Create your models here.
 
-class ShortUUIDModel(models.Model):
-    # A primary key ID of length 16 and a short alphabet.
-    unique_identifier = ShortUUIDField(
-        length=6,
-        max_length=6,
-        alphabet="abcdefABCDEF123456",
-    )
-
-
 class UniformResourceLocator(models.Model):
-    # id = models.CharField(max_length=40, primary_key=True)
+    id = models.AutoField(primary_key=True)
     url = models.URLField(max_length=10_000)
-    uuid = models.CharField(max_length=8)
-    short_url = models.CharField(max_length=6)
+    alias = ShortUUIDField(length=6, max_length=6, alphabet="abcdefABCDEF123456", unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    edited_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        return f'{self.alias} -> {self.url}'
+    
+    def get_date_created(self):
+        return srt(self.created_at)
+    
+    def get_date_created_human_friendly(self):
+        return self.created_at.strftime("%d %b %Y %H:%M:%S")
+    
+    def get_date_edited(self):
+        return srt(self.edited_at)
+
+    def get_date_edited_human_friendly(self):
+        return self.edited.strftime("%d %b %Y %H:%M:%S")
+    
+    def get_alias(self):
+        return self.alias
+    
+    def get_url(self):
         return self.url

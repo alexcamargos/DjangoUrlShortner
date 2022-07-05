@@ -2,7 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.shortcuts import render
 
-from .models import ShortUUIDModel
 from .models import UniformResourceLocator
 
 
@@ -14,13 +13,12 @@ def index(request):
 def create(request):
     if request.method == 'POST':
         link = request.POST['link']
-        id = ShortUUIDModel().unique_identifier
-        new_link = UniformResourceLocator(url=link, uuid=id)
+        new_link = UniformResourceLocator(url=link)
         new_link.save()
 
-        return HttpResponse(id)
+        return HttpResponse(new_link.alias)
 
 
 def access_url(request, id):
-    url = UniformResourceLocator.objects.get(uuid=id)
-    return redirect(url.url)
+    url = UniformResourceLocator.objects.get(alias=id)
+    return redirect(url.get_url())
