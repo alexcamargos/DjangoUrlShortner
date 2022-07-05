@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 
 from .models import ShortUUIDModel
-from .models import Url
+from .models import UniformResourceLocator
 
 
 # Create your views here.
@@ -15,12 +15,12 @@ def create(request):
     if request.method == 'POST':
         link = request.POST['link']
         id = ShortUUIDModel().unique_identifier
-        new_link = Url(url=link, uuid=id)
+        new_link = UniformResourceLocator(url=link, uuid=id)
         new_link.save()
 
         return HttpResponse(id)
 
 
 def access_url(request, id):
-    url = Url.objects.get(uuid=id)
+    url = UniformResourceLocator.objects.get(uuid=id)
     return redirect(url.url)

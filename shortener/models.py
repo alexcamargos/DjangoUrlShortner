@@ -1,7 +1,5 @@
 from django.db import models
-
 from shortuuid.django_fields import ShortUUIDField
-
 
 # Create your models here.
 
@@ -14,7 +12,7 @@ class ShortUUIDModel(models.Model):
     )
 
 
-class Url(models.Model):
+class UniformResourceLocator(models.Model):
     # id = models.CharField(max_length=40, primary_key=True)
     url = models.URLField(max_length=10_000)
     uuid = models.CharField(max_length=8)
