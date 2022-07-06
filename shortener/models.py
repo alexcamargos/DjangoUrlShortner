@@ -14,13 +14,13 @@ class UniformResourceLocator(models.Model):
         return f'{self.alias} -> {self.url}'
     
     def get_date_created(self):
-        return srt(self.created_at)
+        return str(self.created_at)
     
     def get_date_created_human_friendly(self):
         return self.created_at.strftime("%d %b %Y %H:%M:%S")
     
     def get_date_edited(self):
-        return srt(self.edited_at)
+        return str(self.edited_at)
 
     def get_date_edited_human_friendly(self):
         return self.edited.strftime("%d %b %Y %H:%M:%S")

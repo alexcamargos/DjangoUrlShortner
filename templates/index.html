@@ -28,33 +28,34 @@
       <h1>URL Shortener</h1>
     </div>
 
-    <h2>Enter a long URL to make a shortened:</h2>
-
     <form id="post-form">
       {% csrf_token %}
+      <label class="form-label" for="link">Enter a long URL to make a shortened:</label>
       <input class="form-control-fancy text-t-green" type="text" name="link" id="link" placeholder="Enter URL here" />
+
       <div class="buttons">
         <button class="btn-t-blue btn-xl" type="submit" id="shorten">Shorten</button>
       </div>
     </form>
-
     <section id="section">
       <h3></h3>
+      <a id="shortener_url" href="" target="_blank" rel="noopener noreferrer"></a>
       <div class="section">
         <p>URL Shortener is a free tool to shorten a URL or reduce a link.</p>
         <p>Use our URL Shortener to create a shortened link making it easy to remember.</p>
       </div>
     </section>
   </main>
-
-  <!-- FOOTER START -->
-  <footer id="footer">
-    <div class="footer-content">
-      <p>Criado com &#10084;&#65039; por <a target="_blank" href="https://github.com/alexcamargos">Alexsander Lopes Camargos</a> usando Django.</p>
-    </div>
-  </footer>
-  <!-- FOOTER END -->
 </div>
+
+<!-- FOOTER START -->
+<footer id="footer">
+  <div class="footer-content">
+    <p>Criado com &#10084;&#65039; por <a target="_blank" href="https://github.com/alexcamargos">Alexsander Lopes Camargos</a> usando Django.</p>
+    <p>O código fonte desta aplicação esta disponível no <a href="https://github.com/alexcamargos/DjangoUrlShortner">GitHub</a>.</p>
+  </div>
+</footer>
+<!-- FOOTER END -->
 
 <!-- jQuery v3.6.0 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

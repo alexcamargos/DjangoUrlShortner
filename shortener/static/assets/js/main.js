@@ -8,8 +8,11 @@ $(document).on("submit", "#post-form", function (event) {
             link: $("#link").val(),
             csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
         },
-        success: function (uuid) {
-            $("h3").html("https://alshortener.herokuapp.com/" + uuid);
+        success: function (alias) {
+            shortener_url = "https://alshortener.herokuapp.com/" + alias
+
+            $("#shortener_url").attr("href", shortener_url)
+            $("#shortener_url").html("https://alshortener.herokuapp.com/" + alias);
         },
     });
 });
