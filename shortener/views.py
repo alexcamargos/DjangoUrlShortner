@@ -22,10 +22,14 @@ def create(request):
 
         return HttpResponse(new_link.alias)
 
+def list_links(request):
+    links = UniformResourceLocator.objects.all()
+    return render(request, 'list_urls.html', {'links': links})
 
-def redirect_to_long_url(request, id):
-    url = UniformResourceLocator.objects.get(alias=id)
+
+def redirect_to_long_url(request, alias):
+    url = UniformResourceLocator.objects.get(alias=alias)
 
     url_click_processor(request, url)
 
-    return redirect(url.get_url())
+    return redirect(url.get_full_url())

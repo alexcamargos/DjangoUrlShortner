@@ -143,6 +143,19 @@ from {
   align-items: center;
 }
 
+h3 {
+  text-align: right;
+
+}
+h3 a {
+  color: var(--indigo-dye);
+  text-decoration: none;
+}
+
+h3 a:hover {
+  color: var(--pewter-blue);
+}
+
 /* *************** FOOTER STYLES *************** */
 footer {
   margin-top: 40px;

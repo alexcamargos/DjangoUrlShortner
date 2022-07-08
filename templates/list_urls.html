@@ -16,6 +16,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+    integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="{% static 'assets/style/main.css' %}">
 
 </head>
@@ -27,21 +31,40 @@
       <img src="{% static 'assets/img/logo.png' %}" alt="">
       <h1>URL Shortener</h1>
     </div>
+    <h1>All Shortener URLs:</h1>
 
-    <form id="post-form">
-      {% csrf_token %}
-      <label class="form-label" for="link">Enter a long URL to make a shortened:</label>
-      <input class="form-control-fancy text-t-green" type="text" name="link" id="link" placeholder="Enter URL here" />
-
-      <div class="buttons">
-        <button class="btn-t-blue btn-xl" type="submit" id="shorten">Shorten</button>
-      </div>
-    </form>
     <section id="section">
-      <a id="shortener_url" href="" target="_blank" rel="noopener noreferrer"></a>
+
+      <table class="min-w-full">
+        <thead class="bg-white border-b">
+          <tr>
+            <th>ID</th>
+            <th>Long URL</th>
+            <th>Alias</th>
+            <th>Created by</th>
+            <th>Total Clicks</th>
+            <th>Unique Users (IPs)</z>
+            <th>Created</td>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for link in links %}
+          <tr>
+            <td>{{ link.id }}</td>
+            <td><a href="{{ link.get_alias }}">{{ link.get_full_url_truncated }}</a></td>
+            <td><a href="{{ link.get_alias }}">{{ link.get_alias }}</a></td>
+            <td>{{ link.get_created_by }}</td>
+            <td>{{ link.get_total_clicks }}</td>
+            <td>{{ link.get_unique_clicks }}</td>
+            <td>{{ link.get_date_created_human_friendly }}</td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+      </table>
+
       <div class="section">
-        <!-- link para a view list-->
-        <h3><a href="{% url 'list' %}">All Shortener URLs</a></h3>
         <p>URL Shortener is a free tool to shorten a URL or reduce a link.</p>
         <p>Use our URL Shortener to create a shortened link making it easy to remember.</p>
       </div>
@@ -52,8 +75,10 @@
 <!-- FOOTER START -->
 <footer id="footer">
   <div class="footer-content">
-    <p>Criado com &#10084;&#65039; por <a target="_blank" href="https://github.com/alexcamargos">Alexsander Lopes Camargos</a> usando Django.</p>
-    <p>O código fonte desta aplicação esta disponível no <a href="https://github.com/alexcamargos/DjangoUrlShortner">GitHub</a>.</p>
+    <p>Criado com &#10084;&#65039; por <a target="_blank" href="https://github.com/alexcamargos">Alexsander Lopes
+        Camargos</a> usando Django.</p>
+    <p>O código fonte desta aplicação esta disponível no <a
+        href="https://github.com/alexcamargos/DjangoUrlShortner">GitHub</a>.</p>
   </div>
 </footer>
 <!-- FOOTER END -->
